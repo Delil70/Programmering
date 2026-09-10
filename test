@@ -1,6 +1,4 @@
-# Auto detect text files and perform LF normalization
-* text=auto
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,15 +8,13 @@
 <body>
   <script src="http://koda.nu/simple.js">
     
-
-
-
-
-
-
-
-
+    var age = 16
+   if(age == 15) {
+      console.log("du får köpa energidryck")
     
+   } 
+
+
   </script>
 </body>
 </html>
