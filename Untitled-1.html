@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,17 +7,56 @@
   <title>JavaScript Intro</title>
 </head>
 <body>
-    <script src="http://koda.nu/simple.js">
-    var player = { x: 50, y: 200, size: 40, color: "blue" , speed: 3 };
-    function update () { 
-        clearScreen()
-      circle(player.x, player.y, player.size, player.color);
-      player.x = player.x + player.speed;
+  <script src="http://koda.nu/simple.js">
+    // Skriv din kod här
+    var player = { x: 50, y: 50, size: 40, color: "blue" , speedX: 1, speedY: 5, direction: 1, directionY: 1};
+
+    function update () {
+    clearScreen();
+    circle(player.x, player.y, player.size, player.color);
+    player.x = player.x + player.speedX * player.direction;
+    player.y = player.y + player.speedY * player.directionY;
+
+    if (player.x + player.size > totalWidth){
+    player.direction = -1;
+    player.size = random (20, 60)
+    }
+    if (player.x - player.size < 0) {
+      player.direction = 1
+      player.color = miColor (random(256), random(256) , random (256))
+     }
+    if (player.y - player.size < 0){
+       player.directionY = 1;
+       player.speedX = random (10, 20)
+       player.speedY = random (10, 20)
+    }
+    if (player.y + player.size > totalHeight) {
+      console.log("hujdhjdjh")
+       player.directionY = -1;
+
+       if (player.direction == 0) {
+        player.directiuon = random (-1, 1)
+       }}
+    // studsa mot nederkant - saknas!
+       }
     
 
-        player.speed = player.speed + 0.1
-     player.y = player.y + player.speed
-    } 
-    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
 </body>
 </html>
