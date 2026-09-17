@@ -12,17 +12,70 @@
     function update() {
       clearScreen();
       circle(player.x, player.y, player.size, player.color);
-
-      if (keyborad.right) {
+      text(50, 50, 40, "x är: " + player.x + " y är: " + player.y)
+      if (keyboard.d) {
         player.x = player.x + player.speed;
         }
-        if (keyborad.left) {
+        if (keyboard.a) {
           player.x = player.x - player.speed;
         }
         // Röra sig uppåt - saknas!
+        if (keyboard.w)  {
+          player.y = player.y - player.speed;
+
+        }
+
+
         // Röra sig nedåt - saknas!
+        if (keyboard.s)  {
+          player.y = player.y + player.speed;
+       
+        };
+
+        if(player.x + player.size > totalWidth) {
+            player.x = totalWidth - player.size
+        }
         
+        if(player.x - player.size < 0) {
+          player.x = 0 + player.size
+        }
+        if(player.y - player.size < 0) {
+          player.y = 0 + player.size
+        }
+
+        if(player.y + player.size > totalHeight) {
+           player.y = totalHeight - player.size 
+        }
+
+        if(keyboard.space){
+            player.speed = player.speed * 2
+        } else{
+            player.speed = 5
+        }
+        
+        if(player.x > totalWidth - 100) {
+            text(50, 100, 40, "Närmst")
+            player.speed = player.speed - 1
+        } else if(player.x > totalWidth - 300) {
+            text(50, 100, 40, "Närmare")
+            player.speed = player.speed - 1
+        } else if(player.x > totalWidth - 600) {
+            text(50, 100, 40, "Nära")
+            player.speed = player.speed - 1
+
+
+        }
+          if(player.x > totalWidth - 400) {
+            player.color = "red";
+          } else{
+            player.color = "blue";
+          }
+
+        
+      
       }
+
+
 
   </script>
 </body>
