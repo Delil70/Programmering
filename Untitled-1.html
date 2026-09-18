@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,55 +7,50 @@
 </head>
 <body>
   <script src="http://koda.nu/simple.js">
-    // Skriv din kod här
-    var player = { x: 50, y: 50, size: 40, color: "blue" , speedX: 1, speedY: 5, direction: 1, directionY: 1};
-
-    function update () {
-    clearScreen();
-    circle(player.x, player.y, player.size, player.color);
-    player.x = player.x + player.speedX * player.direction;
-    player.y = player.y + player.speedY * player.directionY;
-
-    if (player.x + player.size > totalWidth){
-    player.direction = -1;
-    player.size = random (20, 60)
-    }
-    if (player.x - player.size < 0) {
-      player.direction = 1
-      player.color = miColor (random(256), random(256) , random (256))
-     }
-    if (player.y - player.size < 0){
-       player.directionY = 1;
-       player.speedX = random (10, 20)
-       player.speedY = random (10, 20)
-    }
-    if (player.y + player.size > totalHeight) {
-      console.log("hujdhjdjh")
-       player.directionY = -1;
-
-       if (player.direction == 0) {
-        player.directiuon = random (-1, 1)
-       }}
-    // studsa mot nederkant - saknas!
+     var color = "red"
+     var size = 50
+   
+   function update () {
+      if(mouse.left)    {
+          circle(mouse.x, mouse.y, size, color)
+      }
+      
+      if(mouse.right) {
+         circle(mouse.x, mouse.y, size, "white")
+      }
+      
+      if(keyboard.one) {
+        color =  "green"
+      }
+       if(keyboard.two) {
+        color = "red"
        }
-    
+       if(keyboard.three) {
+           color = "blue"
+       }
+       if(keyboard.up) {
+           size++
+       }
+       if(keyboard.down) {
+           size--
+           if(size < 1) {
+               size = 1
+           }
+       }
+       
+       if(keyboard.q) {
+           rectangle(mouse.x, mouse.y, size, size, color)
+       }
 
+       text(50, 50, 40, "Du målar med: ", "black")
+       circle(500, 35, 20, color)
+   
+      }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
   </script>
 </body>
+
+
 </html>
+
