@@ -15,11 +15,18 @@
     function update() {
       //rectangle(0, 0, 800, 600, "red");
       fill("Green")
-      circle(100, 50, 10, "blue");
-  }
+      
+      
+      if (keyboard.left) 
+      {
+       playerX = playerX - 5;
+      }
+      if (keyboard.right) {
+        playerX = playerX + 5;
+      }
+      circle(playerX, playerY, 10, "blue");
 
-
-
+    }
 
   </script>
 </body>
