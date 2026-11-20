@@ -1,0 +1,36 @@
+
+Nu måste ag avsluta min lektion, så jag vill att du ger mig en sammanfattning som jag kan skriva till dig nästa gång igen så att du vet vart vi skall börja igen.
+
+
+person
+
+Absolut! Kopiera och spara texten nedan, och skicka den till mig nästa gång:
+
+Jag bygger ett spel i JavaScript med biblioteket simple.js från koda.nu. Jag är nybörjare och vill ha hjälp steg för steg, med korta förklaringar av vad koden gör och var jag ska lägga den.
+
+Det här fungerar:
+
+Spelaren är en blå cirkel med radien 10 pixlar.
+Positionen lagras i variablerna playerX och playerY, som börjar på 100.
+Spelaren rör sig med piltangenterna, 5 pixlar per uppdatering.
+Bakgrunden är grön.
+Kantkontroller hindrar hela spelaren från att lämna spelplanen. Vi använder totalWidth och totalHeight, med hänsyn till spelarens radie.
+Ett gult mynt med radien 8 pixlar ritas vid positionen som anges av coinX och coinY. De börjar på 300 respektive 200.
+Det senaste steget var att göra myntet möjligt att samla upp. Jag har fått instruktionerna nedan, men har ännu inte bekräftat att de fungerar.
+
+Ovanför uppdateringsfunktionen ska denna variabel finnas:
+
+var coinCollected = false;
+Inuti uppdateringsfunktionen, efter rörelsen och kantkontrollerna men före ritningen, ska detta finnas:
+
+var distance = Math.hypot(playerX - coinX, playerY - coinY);
+
+if (!coinCollected && distance < 18) {
+  coinCollected = true;
+}
+Den gamla raden som alltid ritade myntet ska ersättas med:
+
+if (!coinCollected) {
+  circle(coinX, coinY, 8, "yellow");
+}
+Börja nästa gång med att fråga om myntet försvinner när spelaren nuddar det. Om det inte fungerar hjälper du mig att felsöka min aktuella kod. Om det fungerar kan vi gå vidare med poängräkning och att låta myntet dyka upp på en ny plats.

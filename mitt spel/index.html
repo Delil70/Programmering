@@ -8,15 +8,19 @@
 </head>
 <body>
   <script src="http://koda.nu/simple.js">
-    
+    // Objekt, ex spelare
     var playerX = 100;
     var playerY = 100;
     
+    var coinX = 300;
+    var coinY = 200;
+
+    //update körs varje bildruta
     function update() {
       //rectangle(0, 0, 800, 600, "red");
       fill("Green")
       
-      
+      // Hanterar rörelse av gubbe
       if (keyboard.left) 
       {
        playerX = playerX - 5;
@@ -24,9 +28,37 @@
       if (keyboard.right) {
         playerX = playerX + 5;
       }
-      circle(playerX, playerY, 10, "blue");
+      if (keyboard.up) {
+        playerY = playerY - 5;
+      }
+      if (keyboard.down) {
+        playerY = playerY + 5;
+      }
+      // stoppar spelaren vid väntserkanten 
+      if  (playerX < 10) {
+        playerX = 10;
+      }
+      // stoppar spelaren vid högerkanten 
+        if (playerX > totalWidth - 10) {
+          playerX = totalWidth - 10;
+        }
 
+        // stoppar spelaren vid överkanten 
+        if (playerY < 10) {
+          playerY = 10;
+        }
+        // stoppar spelaren vid nederkanten 
+        if (playerY > totalHeight - 10) {
+          playerY = totalHeight - 10;
+        }
+        //Spelaren
+      circle(playerX, playerY, 10, "blue");
+      circle(coinX, coinY, 8, "yellow");
+      
+     
     }
+
+     
 
   </script>
 </body>
