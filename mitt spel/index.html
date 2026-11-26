@@ -11,9 +11,18 @@
     // Objekt, ex spelare
     var playerX = 100;
     var playerY = 100;
+    var poang = 0;
+  var coins = [];
+
     
-    var coinX = 300;
-    var coinY = 200;
+    var coinCollected = false;
+    var score = 0;
+    //
+    for (var i = 0; i < 10; i++) {
+    coins.push( 
+    {x: random(50, totalWidth - 50),y: random(50, totalHeight - 50)});
+}
+     var collectedCoins = [];
 
     //update körs varje bildruta
     function update() {
@@ -51,10 +60,21 @@
         if (playerY > totalHeight - 10) {
           playerY = totalHeight - 10;
         }
+        
+        for (var i = 0; i < coins.length; i++) {
+            circle(coins[i].x, coins[i].y, 10, "yellow");
+
+            // INTE en ny loop. Denna funkar fortfarande. 
+            // OM AVSTÅNDET mellan SPELARE och COINS-med iterator är mindre än spelarens storlek + coins storlek
+            // din coins array använder .splice med parantes iterator, 1
+
+            
+}
+
         //Spelaren
       circle(playerX, playerY, 10, "blue");
-      circle(coinX, coinY, 8, "yellow");
       
+
      
     }
 
